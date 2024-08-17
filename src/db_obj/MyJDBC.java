@@ -1301,7 +1301,6 @@ public class MyJDBC {
             preparedStatement.setString(1,agencyName);
             resultSet = preparedStatement.executeQuery();
             if (resultSet.next()){
-                System.out.println(resultSet.getInt("id"));
                 return resultSet.getInt("id");
             }
         }

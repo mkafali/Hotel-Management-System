@@ -8,6 +8,5 @@ public class Main {
         mainFrame frame = new mainFrame();
         loginGui hotel = new loginGui(frame);
 
-
     }
 }

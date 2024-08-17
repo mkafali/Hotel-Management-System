@@ -99,7 +99,6 @@ public class RoomExtrasGui extends JDialog {
 
                         //Controls every possibility to prevent problems.
                         if (totalPrice.equals(totalPriceInLabel)){
-                            System.out.println("memsa");
                             if(MyJDBC.addExtraToRoom(personnel,roomNoBox.getSelectedItem().toString().split(" ")[0],product,piece,productPrice)){
                                 JOptionPane.showMessageDialog(null,"CHANGES SAVED SUCCESSFULLY!");
                                 RoomExtrasGui.this.dispose();
@@ -114,7 +113,6 @@ public class RoomExtrasGui extends JDialog {
                     }
                 }
                 catch (NumberFormatException ex){
-                    //System.out.println("mehmet");
                 }
             }
         });
@@ -143,7 +141,7 @@ public class RoomExtrasGui extends JDialog {
             //If required items selected in Combo Boxs and entered piece properly.
             try {
                 if(!pieceField.getText().isEmpty() && (roomNoBox.getSelectedIndex() != -1) && (extraBox.getSelectedIndex() != -1)){
-                    System.out.println("adam");
+
                     int piece = Integer.parseInt(pieceField.getText());
 
                     BigDecimal productPrice = new BigDecimal(extraBox.getSelectedItem().toString()
@@ -151,16 +149,14 @@ public class RoomExtrasGui extends JDialog {
                             .substring(0,extraBox.getSelectedItem().toString()
                                     .split("\\(")[1].split("\\)")[0].length() - 3));
 
-                    //System.out.println(productPrice);
                     totalLabel.setText("TOTAL: " + productPrice.multiply(BigDecimal.valueOf(piece)) + " TL");
-                    //System.out.println("TOTAL: " + piece *productPrice);
                 }
                 else{
                     totalLabel.setText("TOTAL: ");
                 }
             }
             catch (NumberFormatException e){
-                //System.out.println("mehmet");
+                //
             }
 
             }
